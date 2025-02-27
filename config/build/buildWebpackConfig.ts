@@ -3,11 +3,14 @@ import { webpackPlugins } from "./webpackPlugins";
 import { webpackLoaders } from "./webpackLoaders";
 import { webpackResolvers } from "./webpackResolvers";
 import { WebpackOptions } from "./types/config";
+import { webpackDevServer } from "./webpackDevServer";
+
 
 export const buildWebpackConfig = (options: WebpackOptions): webpack.Configuration => {
-  const { mode, paths } = options;
+  const { mode, paths, isDev } = options;
     return {
       mode,
+      devtool: isDev ? 'inline-source-map' : undefined,
       entry: paths.entry,
       output: {
         filename: '[name].js',
@@ -19,5 +22,6 @@ export const buildWebpackConfig = (options: WebpackOptions): webpack.Configurati
         rules: webpackLoaders(),
       },
       resolve: webpackResolvers(),
+      devServer: isDev ? webpackDevServer(options) : undefined,
     };
 };
