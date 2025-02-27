@@ -9,5 +9,15 @@ export const webpackLoaders = (): webpack.RuleSetRule[] => {
     use: 'ts-loader',
     exclude: path.resolve(__dirname, "node_modules"),
   };
-    return [tsLoader];
+
+  const scssLoader = {
+    test: /\.s[ac]ss$/i,
+    use: [
+      "style-loader",
+      "css-loader",
+      "sass-loader",
+    ],
+  };
+
+    return [tsLoader, scssLoader];
 };

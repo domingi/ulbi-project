@@ -7,7 +7,7 @@ export default (env:BuildEnvs) => {
     mode: env.mode || 'development',
     port: env.port || 3001,
     paths: {
-      entry: path.resolve(__dirname, 'src', 'index.ts'),
+      entry: path.resolve(__dirname, 'src', 'index.tsx'),
       output: path.resolve(__dirname, 'build'),
       public: path.resolve(__dirname, 'public', 'index.html'),
     },
