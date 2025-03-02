@@ -7,5 +7,6 @@ export const webpackDevServer = (options: WebpackOptions): Configuration => {
       static: paths.public,
       open: true,
       port,
+      historyApiFallback: true,
     };
 };
