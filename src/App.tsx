@@ -5,11 +5,12 @@ import { CounterPageAsync } from './pages/CounterPage.async';
 import { MainPageAsync } from './pages/MainPage.async';
 import './styles/index.scss';
 import useTheme from './theme/useTheme';
+import classNames from './utils/classNames';
 
 const App = () => {
     const { theme } = useTheme();
     return (
-            <div className={`app ${theme }`}>
+            <div className={classNames('app', {}, [theme])}>
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
                     <Route path="/about" element={<AboutPageAsync />} />
