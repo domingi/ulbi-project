@@ -1,7 +1,10 @@
+import useTheme from "../theme/useTheme";
+
 const MainPage = () => {
+    const { toggleTheme } = useTheme();
 
     return (
-                <div>Главная</div>
+                <><div>Главная</div><button onClick={toggleTheme}>Поменять тему</button></>
     )
 };
 
