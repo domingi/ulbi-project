@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
-import { LOCAL_STORAGE_THEME_KEY, THEMES } from './constants';
-import { ThemeContext } from './ThemeContext';
+import { LOCAL_STORAGE_THEME_KEY, THEMES } from '../lib/constants';
+import { ThemeContext } from '../lib/ThemeContext';
 
 const ThemeProvider: FC = ({ children }) => {
     const localStorageTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY);

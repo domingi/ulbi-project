@@ -7,6 +7,7 @@ export interface WebpackOptions {
     entry: string,
     output: string,
     public: string,
+    src: string,
   },
   isDev: boolean,
 }
