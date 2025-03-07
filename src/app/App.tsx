@@ -5,18 +5,18 @@ import classNames from '~/shared/lib/classNames/classNames';
 import { useTheme } from './providers/ThemeProvider';
 import { AboutPage } from '~/pages/AboutPage';
 import { MainPage } from '~/pages/MainPage';
+import { Navbar } from '~/widgets/Navbar/ui/Navbar';
 
 const App = () => {
     const { theme } = useTheme();
     return (
             <div className={classNames('app', {}, [theme])}>
+            <Navbar />
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/" element={<MainPage />} />
                 </Routes>
-                <Link to="/about">О проекте</Link>
-                <Link to="/">Главная</Link>
             </Suspense>
             </div>
     )

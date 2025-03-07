@@ -11,6 +11,7 @@ export default (env:BuildEnvs) => {
       output: path.resolve(__dirname, 'build'),
       public: path.resolve(__dirname, 'public', 'index.html'),
       src: path.resolve(__dirname, 'src'),
+      favicon: path.resolve(__dirname, 'public', 'favicon.ico'),
     },
     isDev: env.mode === 'development',
   }

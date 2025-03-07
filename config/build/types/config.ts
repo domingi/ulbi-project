@@ -8,6 +8,7 @@ export interface WebpackOptions {
     output: string,
     public: string,
     src: string,
+    favicon: string,
   },
   isDev: boolean,
 }
