@@ -8,7 +8,10 @@ export const webpackPlugins = (options: WebpackOptions): webpack.WebpackPluginIn
     const { paths } = options;
     return [
         new webpack.ProgressPlugin(),
-        new HtmlWebpackPlugin({ template: paths.public}),
+        new HtmlWebpackPlugin({
+          template: paths.public,
+          favicon: paths.favicon,
+        }),
         new MiniCssExtractPlugin(),
       ]
 };
