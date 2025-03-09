@@ -1,8 +1,8 @@
 import './styles/index.scss';
 import classNames from '~/shared/lib/classNames/classNames';
-import { useTheme } from './providers/ThemeProvider';
-import { AppRouter } from './providers/router/ui/AppRouter';
-import { Navbar } from '~/widgets/Navbar/ui/Navbar';
+import { useTheme } from '~/app/providers/ThemeProvider';
+import { AppRouter } from '~/app/providers/router';
+import { Navbar } from '~/widgets/Navbar';
 
 const App = () => {
     const { theme } = useTheme();
