@@ -10,3 +10,11 @@
     background-color: var(--bg-color);
     min-height: 500px;
 }
+
+.content-wrapper {
+    display: flex;
+}
+
+.page-wrapper {
+    flex-grow: 1;
+}
