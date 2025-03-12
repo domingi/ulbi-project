@@ -10,6 +10,7 @@ export default (env:BuildEnvs) => {
       entry: path.resolve(__dirname, 'src', 'index.tsx'),
       output: path.resolve(__dirname, 'build'),
       public: path.resolve(__dirname, 'public', 'index.html'),
+      devServer: path.resolve(__dirname, 'public'),
       src: path.resolve(__dirname, 'src'),
       favicon: path.resolve(__dirname, 'public', 'favicon.ico'),
     },

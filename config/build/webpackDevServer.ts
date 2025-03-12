@@ -4,7 +4,7 @@ import { WebpackOptions } from "./types/config";
 export const webpackDevServer = (options: WebpackOptions): Configuration => {
   const { port, paths } = options;
     return {
-      static: paths.public,
+      static: paths.devServer,
       open: true,
       port,
       historyApiFallback: true,

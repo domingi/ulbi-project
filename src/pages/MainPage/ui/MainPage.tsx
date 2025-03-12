@@ -1,10 +1,11 @@
-import { useTheme } from "~/app/providers/ThemeProvider";
+import { useTranslation } from "react-i18next";
 
 const MainPage = () => {
-    const { toggleTheme } = useTheme();
-
+    const { t } = useTranslation('main');
     return (
-                <><div>Главная</div><button onClick={toggleTheme}>Поменять тему</button></>
+        <>
+            <div>{t('glavnayaS')}</div>
+            </>
     )
 };
 
