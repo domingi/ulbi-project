@@ -8,5 +8,6 @@ export const webpackDevServer = (options: WebpackOptions): Configuration => {
       open: true,
       port,
       historyApiFallback: true,
+      hot: true,
     };
 };

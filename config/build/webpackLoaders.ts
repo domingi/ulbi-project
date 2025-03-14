@@ -12,6 +12,17 @@ export const webpackLoaders = (options: WebpackOptions): webpack.RuleSetRule[] =
     use: ['@svgr/webpack'],
   };
 
+  const babelLoader = {
+    test: /\.m?ts$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ['@babel/preset-env']
+      }
+    }
+  };
+
   const tsLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
@@ -37,5 +48,5 @@ export const webpackLoaders = (options: WebpackOptions): webpack.RuleSetRule[] =
     ],
   };
 
-    return [tsLoader, scssLoader, svgLoader];
+    return [babelLoader, tsLoader, scssLoader, svgLoader];
 };
