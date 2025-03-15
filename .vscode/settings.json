@@ -5,5 +5,29 @@
         "public/locales",
     ],
     "i18n-ally.keystyle": "nested",
-    "i18n-ally.sourceLanguage": "ru"
+    "i18n-ally.sourceLanguage": "ru",
+    "stylelint.config": null,
+    "stylelint.snippet": [
+        "css",
+        "postcss",
+        "scss"
+    ],
+    "stylelint.validate": [
+        "css",
+        "postcss",
+        "scss"
+    ],
+    "[scss]": {
+        "editor.suggest.insertMode": "replace",
+        "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    },
+    "files.associations": {
+        "*.scss": "scss"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": "explicit"
+    },
 }
