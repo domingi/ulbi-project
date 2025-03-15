@@ -5,16 +5,16 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 
 export const webpackPlugins = (options: WebpackOptions): webpack.WebpackPluginInstance[] => {
-    const { paths, isDev } = options;
-    return [
-        new webpack.ProgressPlugin(),
-        new HtmlWebpackPlugin({
-          template: paths.public,
-          favicon: paths.favicon,
-        }),
-        new MiniCssExtractPlugin(),
-        new webpack.DefinePlugin({
-          __IS_DEV__: JSON.stringify(isDev),
-        }),
-      ]
+  const { paths, isDev } = options;
+  return [
+    new webpack.ProgressPlugin(),
+    new HtmlWebpackPlugin({
+      template: paths.public,
+      favicon: paths.favicon,
+    }),
+    new MiniCssExtractPlugin(),
+    new webpack.DefinePlugin({
+      __IS_DEV__: JSON.stringify(isDev),
+    }),
+  ]
 };

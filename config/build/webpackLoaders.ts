@@ -48,5 +48,5 @@ export const webpackLoaders = (options: WebpackOptions): webpack.RuleSetRule[] =
     ],
   };
 
-    return [babelLoader, tsLoader, scssLoader, svgLoader];
+  return [babelLoader, tsLoader, scssLoader, svgLoader];
 };

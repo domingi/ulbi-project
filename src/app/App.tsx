@@ -6,16 +6,16 @@ import { Navbar } from '~/widgets/Navbar';
 import { Sidebar } from '~/widgets/Sidebar';
 
 const App = () => {
-    const { theme } = useTheme();
-    return (
-            <div className={classNames('app', {}, [theme])}>
-            <Navbar />
-            <div className="content-wrapper">
-                <Sidebar />
-                <AppRouter />
-            </div>
-            </div>
-    )
+  const { theme } = useTheme();
+  return (
+    <div className={classNames('app', {}, [theme])}>
+      <Navbar />
+      <div className="content-wrapper">
+        <Sidebar />
+        <AppRouter />
+      </div>
+    </div>
+  )
 };
 
 export default App;

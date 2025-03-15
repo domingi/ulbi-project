@@ -8,16 +8,16 @@ interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar: FC<SidebarProps> = ({className}: SidebarProps) => {
-    const [isCollapsed, setIsCollapsed] = useState(false);
-    const toggleSidebar = () => setIsCollapsed(prev => !prev);
+export const Sidebar: FC<SidebarProps> = ({ className }: SidebarProps) => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const toggleSidebar = () => setIsCollapsed(prev => !prev);
 
   return (
     <Suspense fallback="">
       <div className={classNames(cls.Sidebar, { [cls.collapsed]: isCollapsed }, [])}>
-          <button onClick={toggleSidebar}>Toggle sidebar</button>
-          <div className={cls.switcher}><ThemeSwitcher /></div>
-          <div><LangSwitcher /></div>
+        <button onClick={toggleSidebar}>Toggle sidebar</button>
+        <div className={cls.switcher}><ThemeSwitcher /></div>
+        <div><LangSwitcher /></div>
       </div>
     </Suspense>
 
