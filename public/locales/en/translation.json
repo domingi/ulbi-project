@@ -1,3 +1,6 @@
 {
-  "language": "English"
+  "language": "English",
+  "404-stranica-ne-naidena": "404: Page not found",
+  "glavnaya": "Home",
+  "o-proekte": "About the project"
 }
