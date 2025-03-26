@@ -2,5 +2,7 @@
   "language": "English",
   "404-stranica-ne-naidena": "404: Page not found",
   "glavnaya": "Home",
-  "o-proekte": "About the project"
+  "o-proekte": "About the project",
+  "chto-to-poshlo-ne-tak": "Something went wrong",
+  "perezagruzit": "Reload"
 }
