@@ -11,6 +11,13 @@ const config: Config = {
     "**/__tests__/**/*.[jt]s?(x)",
     "**/?(*.)+(spec|test).[tj]s?(x)"
   ],
+  rootDir: './',
+  setupFilesAfterEnv: ['<rootDir>/config/jest/jestSetup.ts'],
+  moduleNameMapper: {
+    '\\.s?css$': 'identity-obj-proxy',
+    '\\.svg$': '<rootDir>/config/jest/__mocks__/svg.tsx',
+    "~/(.*)": "<rootDir>/src/$1"
+  },
   testPathIgnorePatterns: [
     "\\\\node_modules\\\\"
   ],
@@ -18,6 +25,12 @@ const config: Config = {
     "\\\\node_modules\\\\"
   ],
   testEnvironment: "jsdom",
+  moduleDirectories: [
+    'node_modules',
+  ],
+  modulePaths: [
+    '<rootDir>src',
+  ],
 };
 
 export default config;

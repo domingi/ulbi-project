@@ -21,6 +21,9 @@
         "module": "CommonJS",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
-      }
+      },
+      "include": [
+        "./config/build/jest/jestSetup.ts"
+      ],
     },
   }
