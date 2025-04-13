@@ -24,6 +24,7 @@ export default [
       "@typescript-eslint/no-unused-vars": "warn",
       "indent": ["error", 2],
       "react/no-deprecated": "off",
+      "react/display-name": "off",
     },
   },
 ];

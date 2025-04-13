@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { THEMES, useTheme } from '~/app/providers/ThemeProvider';
-import LightIcon from '~/shared/assets/themeLightIcon.svg';
-import DarkIcon from '~/shared/assets/themeDarkIcon.svg';
+import { ThemeLightIcon } from '~/shared/assets/ThemeLightIcon';
+import { ThemeDarkIcon } from '~/shared/assets/themeDarkIcon';
 import { Button } from '../../Button/ui/Button';
 
 interface ThemeSwitcherProps {
@@ -13,7 +13,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props: ThemeSwitcherProps)
 
   return (
     <Button onClick={toggleTheme}>
-      {theme === THEMES.LIGHT ? <LightIcon /> : <DarkIcon />}
+      {theme === THEMES.LIGHT ? <ThemeLightIcon /> : <ThemeDarkIcon />}
     </Button>
   );
 };
