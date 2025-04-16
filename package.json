@@ -12,10 +12,11 @@
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "storybook": "storybook dev -p 6006 --config-dir ./config/storybook",
-    "storybook:build": "storybook build",
+    "storybook:build": "storybook build --config-dir ./config/storybook",
     "test:unit": "jest",
     "test:ui": "npx loki test",
-    "test:ui:ok": "npx loki approve"
+    "test:ui:ok": "npx loki approve",
+    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static"
   },
   "repository": {
     "type": "git",
