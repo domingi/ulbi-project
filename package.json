@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "unit": "jest",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
     "start": "webpack serve --env port=3000 --env mode=development",
@@ -13,8 +12,10 @@
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "storybook": "storybook dev -p 6006 --config-dir ./config/storybook",
-    "build-storybook": "storybook build",
-    "loki": "npx loki test"
+    "storybook:build": "storybook build",
+    "test:unit": "jest",
+    "test:ui": "npx loki test",
+    "test:ui:ok": "npx loki approve"
   },
   "repository": {
     "type": "git",
