@@ -30,4 +30,5 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.stylelint": "explicit"
     },
+    "files.eol": "\n"
 }
