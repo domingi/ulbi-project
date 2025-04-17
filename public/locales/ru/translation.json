@@ -1,9 +1,9 @@
 {
   "language": "Русский",
+  "language-short": "Рус",
   "404-stranica-ne-naidena": "404: страница не найдена",
   "glavnaya": "Главная",
   "o-proekte": "О проекте",
   "chto-to-poshlo-ne-tak": "Что-то пошло не так",
-  "perezagruzit": "Перезагрузить",
-  "pereklyuchit-saidbar": "Переключить сайдбар"
+  "perezagruzit": "Перезагрузить"
 }

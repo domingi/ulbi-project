@@ -1,7 +1,7 @@
 import { FC } from "react";
 import cls from './Navbar.module.scss';
 import classNames from "~/shared/lib/classNames/classNames";
-import { APP_LINK_THEME, AppLink } from "~/shared/ui/AppLink/AppLink";
+import { APP_LINK_THEME, AppLink } from "~/shared/ui/AppLink/ui/AppLink";
 import { ROUTE_PATHS } from "~/shared/config/routeConfig/routeConfig";
 import { useTranslation } from "react-i18next";
 
