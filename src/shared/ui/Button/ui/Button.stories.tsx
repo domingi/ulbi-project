@@ -27,6 +27,13 @@ export const Clear: Story = {
   },
 };
 
+export const ClearInverted: Story = {
+  args: {
+    children: 'Кнопка',
+    theme: ButtonTheme.CLEAR_INVERTED,
+  },
+};
+
 export const Outline: Story = {
   args: {
     children: 'Кнопка',
