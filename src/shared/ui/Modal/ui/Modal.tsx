@@ -1,7 +1,6 @@
 import { FC, useCallback, useEffect, useRef, useState } from "react";
 import cls from './Modal.module.scss';
 import classNames from "~/shared/lib/classNames/classNames";
-import { Portal } from "~/shared/ui/Portal";
 
 interface ModalProps {
   children: React.ReactNode;
@@ -47,15 +46,12 @@ export const Modal: FC<ModalProps> = ({className, children, isOpen, onClose}: Mo
   }, [isOpen, onKeyDown])
 
   return (
-    <Portal>
-      <div className={classNames(cls.Modal, mods, [className])}>
-        <div className={classNames(cls.overlay, {}, [className])} onClick={onCloseHandler}>
-          <div className={classNames(cls.content, {}, [className])} onClick={(e) => e.stopPropagation()}>
-            {children}
-          </div>
+    <div className={classNames(cls.Modal, mods, [className])}>
+      <div className={classNames(cls.overlay, {}, [className])} onClick={onCloseHandler}>
+        <div className={classNames(cls.content, {}, [className])} onClick={(e) => e.stopPropagation()}>
+          {children}
         </div>
       </div>
-    </Portal>
-
+    </div>
   );
 };

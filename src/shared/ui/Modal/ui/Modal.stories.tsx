@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {
-    children: 'Модальное окно со всяким разным',
+    children: 'Модалка',
     isOpen: true,
     onClose: () => {},
   },

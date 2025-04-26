@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "~/shared/ui/Button";
 import { Modal } from "~/shared/ui/Modal";
 import { ButtonTheme } from "~/shared/ui/Button/ui/Button";
+import { Portal } from "~/shared/ui/Portal";
 
 interface NavbarProps {
     className?: string;
@@ -23,9 +24,11 @@ export const Navbar: FC<NavbarProps> = ({className}: NavbarProps) => {
       <Button onClick={toggleAuthModal} theme={ButtonTheme.CLEAR_INVERTED}>
         {t('voiti')}
       </Button>
-      <Modal isOpen={isAuthOpen} onClose={toggleAuthModal}>
-        Microsoft Windows [Version 10.0.22631.5189]
-      </Modal>
+      <Portal>
+        <Modal isOpen={isAuthOpen} onClose={toggleAuthModal}>
+          Microsoft Windows [Version 10.0.22631.5189]
+        </Modal>
+      </Portal>
     </div>
   );
 };
