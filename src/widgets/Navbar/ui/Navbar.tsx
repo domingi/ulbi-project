@@ -1,8 +1,6 @@
 import { FC, useCallback, useState } from "react";
 import cls from './Navbar.module.scss';
 import classNames from "~/shared/lib/classNames/classNames";
-import { APP_LINK_THEME, AppLink } from "~/shared/ui/AppLink/ui/AppLink";
-import { ROUTE_PATHS } from "~/shared/config/routeConfig/routeConfig";
 import { useTranslation } from "react-i18next";
 import { Button } from "~/shared/ui/Button";
 import { Modal } from "~/shared/ui/Modal";

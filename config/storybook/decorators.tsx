@@ -7,7 +7,7 @@ import { I18nextProvider } from 'react-i18next';
 import i18n from '~/shared/config/i18n/i18nStorybook';
 import { Suspense, useEffect } from 'react';
 
-export const themeDecorator = (Story: StoryFn) => {
+export const ThemeDecorator = (Story: StoryFn) => {
   const { theme } = useTheme();
   return (
     <ThemeProvider>
@@ -18,7 +18,7 @@ export const themeDecorator = (Story: StoryFn) => {
 
   );
 }
-export  const i18nDecorator = (Story: StoryFn, context: StoryContext) => {
+export  const I18nDecorator = (Story: StoryFn, context: StoryContext) => {
   const { locale } = context.globals;
   
   useEffect(() => {
@@ -33,7 +33,7 @@ export  const i18nDecorator = (Story: StoryFn, context: StoryContext) => {
   )
 };
   
-export const routerDecorator = (Story: StoryFn) => {
+export const RouterDecorator = (Story: StoryFn) => {
   return (
     <BrowserRouter>
       <Story />

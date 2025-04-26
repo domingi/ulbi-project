@@ -22,7 +22,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }: SidebarProps) => {
   const toggleSidebar = () => setIsCollapsed(prev => !prev);
 
   return (
-    <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: isCollapsed }, [])}>
+    <div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: isCollapsed }, [className])}>
       <div className={cls.links}>
         <AppLink to={ROUTE_PATHS.main} theme={APP_LINK_THEME.MAIN} className={cls.link}>
           <HomeIcon />  
