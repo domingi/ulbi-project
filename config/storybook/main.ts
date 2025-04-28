@@ -2,6 +2,7 @@ import type { StorybookConfig } from '@storybook/react-webpack5';
 import { scssLoader } from '../build/loaders/scssLoader';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
+import { definePlugin } from '../build/webpackPlugins';
 
 const config: StorybookConfig = {
   stories: [
@@ -22,6 +23,7 @@ const config: StorybookConfig = {
   webpackFinal: async (config) => {
     config.module.rules.push(scssLoader(true));
     config.plugins.push(new MiniCssExtractPlugin());
+    config.plugins.push(definePlugin(true));
     config.resolve.alias = {
       ...config.resolve.alias,
       '~': path.resolve(__dirname, '../../src'),

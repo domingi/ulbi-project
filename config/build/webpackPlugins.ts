@@ -4,6 +4,10 @@ import { WebpackOptions } from "./types/config";
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
+export const definePlugin = (isDev: boolean) => 
+  new webpack.DefinePlugin({
+    __IS_DEV__: JSON.stringify(isDev),
+  });
 
 export const webpackPlugins = (options: WebpackOptions): webpack.WebpackPluginInstance[] => {
   const { paths, isDev } = options;
@@ -15,10 +19,7 @@ export const webpackPlugins = (options: WebpackOptions): webpack.WebpackPluginIn
       favicon: paths.favicon,
     }),
     new MiniCssExtractPlugin(),
-    new webpack.DefinePlugin({
-      __IS_DEV__: JSON.stringify(isDev),
-    }),
-
+    definePlugin(isDev),
   ];
 
   if (isDev) {

@@ -6,6 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '~/shared/config/i18n/i18nStorybook';
 import { Suspense, useEffect } from 'react';
+import { DeepPartial } from '@reduxjs/toolkit';
+import { StoreProvider, StoreScheme } from '~/app/providers/StoreProvider';
 
 export const ThemeDecorator = (Story: StoryFn) => {
   const { theme } = useTheme();
@@ -38,5 +40,19 @@ export const RouterDecorator = (Story: StoryFn) => {
     <BrowserRouter>
       <Story />
     </BrowserRouter>
+  )
+};
+
+export const ReduxDecorator = (Story: StoryFn) => {
+  const initialState: DeepPartial<StoreScheme> = {
+    counter: {
+      value: 10,
+    }
+  };
+
+  return (
+    <StoreProvider initialState={initialState as StoreScheme}>
+      <Story />
+    </StoreProvider>
   )
 };

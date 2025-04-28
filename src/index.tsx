@@ -6,16 +6,23 @@ import '~/shared/config/i18n/i18n';
 import { ErrorBoundary } from './app/providers/ErrorBoundary';
 import { Suspense } from 'react';
 import '~/app/styles/index.scss';
+import { StoreProvider } from '~/app/providers/StoreProvider';
+
+const initialState = {
+  counter: { value: 0 },
+}
 
 render(
-  <BrowserRouter>
-    <ErrorBoundary>
-      <ThemeProvider>
-        <Suspense fallback="">
-          <App />
-        </Suspense>
-      </ThemeProvider>
-    </ErrorBoundary>
-  </BrowserRouter>,
+  <StoreProvider initialState={initialState}>
+    <BrowserRouter>
+      <ErrorBoundary>
+        <ThemeProvider>
+          <Suspense fallback="">
+            <App />
+          </Suspense>
+        </ThemeProvider>
+      </ErrorBoundary>
+    </BrowserRouter>
+  </StoreProvider>,
   document.getElementById('root')
 );

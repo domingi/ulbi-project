@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react'
-import { I18nDecorator, RouterDecorator, ThemeDecorator } from './decorators';
+import { I18nDecorator, ReduxDecorator, RouterDecorator, ThemeDecorator } from './decorators';
 import '../../src/app/styles/index.scss';
 
 export const globalTypes = {
@@ -18,7 +18,7 @@ export const globalTypes = {
 };
 
 const preview: Preview = {
-  decorators: [I18nDecorator, RouterDecorator, ThemeDecorator],
+  decorators: [I18nDecorator, RouterDecorator, ThemeDecorator, ReduxDecorator],
   parameters: {
     controls: {
       matchers: {
@@ -26,6 +26,7 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+
   },
 };
 

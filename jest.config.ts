@@ -7,6 +7,9 @@ import type {Config} from 'jest';
 
 const config: Config = {
   clearMocks: true,
+  globals: {
+    __IS_DEV__: true,
+  },
   testMatch: [
     "**/__tests__/**/*.[jt]s?(x)",
     "**/?(*.)+(spec|test).[tj]s?(x)"
