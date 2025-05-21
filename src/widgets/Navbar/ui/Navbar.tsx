@@ -3,9 +3,9 @@ import cls from './Navbar.module.scss';
 import classNames from "~/shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 import { Button } from "~/shared/ui/Button";
-import { Modal } from "~/shared/ui/Modal";
 import { ButtonTheme } from "~/shared/ui/Button/ui/Button";
 import { Portal } from "~/shared/ui/Portal";
+import { LoginModal } from "~/features/AuthByUsername/ui/LoginModal/LoginModal";
 
 interface NavbarProps {
     className?: string;
@@ -25,9 +25,7 @@ export const Navbar: FC<NavbarProps> = ({className}: NavbarProps) => {
         {t('voiti')}
       </Button>
       <Portal>
-        <Modal isOpen={isAuthOpen} onClose={toggleAuthModal}>
-          Microsoft Windows [Version 10.0.22631.5189]
-        </Modal>
+        <LoginModal isOpen={isAuthOpen} onClose={toggleAuthModal} />
       </Portal>
     </div>
   );
