@@ -1,4 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react'
+import { fireEvent, screen, waitFor } from '@testing-library/react'
 import { Sidebar } from './Sidebar'
 import { renderForTest } from '~/shared/lib/tests/renderForTest/renderForTest';
 

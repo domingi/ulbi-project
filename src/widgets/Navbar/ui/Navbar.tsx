@@ -6,6 +6,8 @@ import { Button } from "~/shared/ui/Button";
 import { ButtonTheme } from "~/shared/ui/Button/ui/Button";
 import { Portal } from "~/shared/ui/Portal";
 import { LoginModal } from "~/features/AuthByUsername/ui/LoginModal/LoginModal";
+import { getAuthData, userActions } from "~/entities/User";
+import { useDispatch, useSelector } from "react-redux";
 
 interface NavbarProps {
     className?: string;
@@ -13,11 +15,25 @@ interface NavbarProps {
 
 export const Navbar: FC<NavbarProps> = ({className}: NavbarProps) => {
   const { t } = useTranslation('translation');
+  const dispatch = useDispatch();
+  const authData = useSelector(getAuthData);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
 
   const toggleAuthModal = useCallback(() => {
     setIsAuthOpen(prev => !prev);
   }, []);
+
+  const logoutButtonHandler = () => {
+    dispatch(userActions.logout());
+  };
+
+  if (authData) return (
+    <div className={classNames(cls.Navbar, {}, [className])}>
+      <Button onClick={logoutButtonHandler} theme={ButtonTheme.CLEAR_INVERTED}>
+        {t('vyiti')}
+      </Button>
+    </div>
+  );
 
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>

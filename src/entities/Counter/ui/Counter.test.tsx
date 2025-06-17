@@ -3,7 +3,7 @@ import { Counter } from './Counter'
 import { renderForTest } from '~/shared/lib/tests/renderForTest/renderForTest';
 import { userEvent } from '@storybook/test';
 
-describe('Sidebar Tests', () => {
+describe('Counter Tests', () => {
 
   test('Load and displays Counter', async () => {
     renderForTest(<Counter />);
