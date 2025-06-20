@@ -6,15 +6,21 @@ import { Text } from '~/shared/ui/Text';
 import { ButtonTheme } from '~/shared/ui/Button/ui/Button';
 import { useDispatch, useSelector } from "react-redux";
 import { loginActions } from '../../model/slice/loginSlice';
-import { getLoginState } from '../../model/selectors/getLoginState';
 import { loginByUsername } from '../../model/services/loginByUsername';
 import { TextTheme } from '~/shared/ui/Text/ui/Text';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 
 
 export const LoginForm = (): JSX.Element => {
   const { t } = useTranslation('translation');
   const dispatch = useDispatch();
-  const { username, password, isLoading, error } = useSelector(getLoginState);
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginIsLoading);
+  const error = useSelector(getLoginError);
 
   const onChangeUsername = (value: string) => {
     dispatch(loginActions.setUsername(value));

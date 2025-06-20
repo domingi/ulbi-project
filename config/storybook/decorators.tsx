@@ -6,8 +6,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '~/shared/config/i18n/i18nStorybook';
 import { Suspense, useEffect } from 'react';
-import { DeepPartial } from '@reduxjs/toolkit';
+import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { StoreProvider, StoreScheme } from '~/app/providers/StoreProvider';
+import { loginReducer } from '~/features/AuthByUsername/model/slice/loginSlice';
 
 export const ThemeDecorator = (Story: StoryFn) => {
   const { theme } = useTheme();
@@ -50,8 +51,14 @@ export const ReduxDecorator = (Story: StoryFn) => {
     }
   };
 
+  const asyncReducers: DeepPartial<ReducersMapObject<StoreScheme>> = {
+    loginForm: loginReducer,
+  }
+  
   return (
-    <StoreProvider initialState={initialState as StoreScheme}>
+    <StoreProvider
+      initialState={initialState as StoreScheme}
+      asyncReducers={asyncReducers as ReducersMapObject<StoreScheme>}>
       <Story />
     </StoreProvider>
   )

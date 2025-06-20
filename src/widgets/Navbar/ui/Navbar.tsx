@@ -1,11 +1,11 @@
-import { FC, useCallback, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import cls from './Navbar.module.scss';
 import classNames from "~/shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
 import { Button } from "~/shared/ui/Button";
 import { ButtonTheme } from "~/shared/ui/Button/ui/Button";
 import { Portal } from "~/shared/ui/Portal";
-import { LoginModal } from "~/features/AuthByUsername/ui/LoginModal/LoginModal";
+import { LoginModal } from "~/features/AuthByUsername";
 import { getAuthData, userActions } from "~/entities/User";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -27,6 +27,12 @@ export const Navbar: FC<NavbarProps> = ({className}: NavbarProps) => {
     dispatch(userActions.logout());
   };
 
+  useEffect(() => {
+    if (authData) {
+      setIsAuthOpen(false);
+    }
+  }, [authData])
+  
   if (authData) return (
     <div className={classNames(cls.Navbar, {}, [className])}>
       <Button onClick={logoutButtonHandler} theme={ButtonTheme.CLEAR_INVERTED}>

@@ -1,5 +1,4 @@
-import { LoginModal } from "./ui/LoginModal/LoginModal";
+import { LoginModalAsync } from "./ui/LoginModal/LoginModal.async";
 import { LoginSchema } from './model/types/loginSchema';
-import { loginReducer } from './model/slice/loginSlice';
 
-export { LoginModal, LoginSchema, loginReducer };
+export { LoginModalAsync as LoginModal, LoginSchema };

@@ -1,19 +1,27 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import { configureStore, DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { counterReducer } from '~/entities/Counter';
 import { StoreScheme } from './storeScheme';
 import { userReducer } from '~/entities/User';
-import { loginReducer } from '~/features/AuthByUsername';
+import { createReducerManager } from './reducerManager';
 
-export const createReduxStore = (initialState: StoreScheme) => {
+export type ReducersKeys = keyof StoreScheme;
+
+export const createReduxStore = (initialState: StoreScheme, asyncReducers?: ReducersMapObject<StoreScheme>) => {
   const rootReducers: ReducersMapObject<StoreScheme> = {
+    ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
-    loginForm: loginReducer,
   };
 
-  return  configureStore<StoreScheme>({
-    reducer: rootReducers,
+  const reducerManager = createReducerManager(rootReducers);
+  const store = configureStore({
+    reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-  })
+  });
+
+  // @ts-expect-error временное решение
+  store.reducerManager = reducerManager;
+
+  return store;
 };

@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { Modal } from '~/shared/ui/Modal';
 import { LoginForm } from '../LoginForm/LoginForm';
+import { loginReducer } from '../../model/slice/loginSlice';
+import { DynamicModuleLoader } from '~/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 
 interface LoginModalProps {
     className?: string;
@@ -8,12 +10,16 @@ interface LoginModalProps {
     onClose: () => void;
 }
 
-export const LoginModal: FC<LoginModalProps> = (props: LoginModalProps) => {
+const LoginModal: FC<LoginModalProps> = (props: LoginModalProps) => {
   const { className, isOpen, onClose } = props;
 
   return (
-    <Modal className={className} isOpen={isOpen} onClose={onClose} isLazy>
-      <LoginForm />
-    </Modal>
+    <DynamicModuleLoader reducerName='loginForm' reducer={loginReducer}>
+      <Modal className={className} isOpen={isOpen} onClose={onClose} isLazy>
+        <LoginForm />
+      </Modal>
+    </DynamicModuleLoader>
   );
 };
+
+export default LoginModal;
