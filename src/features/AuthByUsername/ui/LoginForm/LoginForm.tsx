@@ -1,10 +1,11 @@
 import cls from './LoginForm.module.scss';
+import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '~/shared/ui/Button';
 import { Input } from '~/shared/ui/Input';
 import { Text } from '~/shared/ui/Text';
 import { ButtonTheme } from '~/shared/ui/Button/ui/Button';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { loginActions } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername';
 import { TextTheme } from '~/shared/ui/Text/ui/Text';
@@ -12,27 +13,34 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
+import { useAppDispatch } from '~/shared/hooks/useAppDispatch/useAppDispatch';
 
+interface LoginFormProps {
+  onSuccess: () => void;
+}
 
-export const LoginForm = (): JSX.Element => {
+export const LoginForm: FC<LoginFormProps> = memo(({ onSuccess }: LoginFormProps) => {
   const { t } = useTranslation('translation');
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
   const error = useSelector(getLoginError);
 
-  const onChangeUsername = (value: string) => {
+  const onChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));
-  };
+  }, []);
 
-  const onChangePassword = (value: string) => {
+  const onChangePassword = useCallback((value: string) => {
     dispatch(loginActions.setPassword(value));
-  };
+  }, []);
 
-  const loginButtonHandler = () => {
-    dispatch(loginByUsername({ username, password }));
-  };
+  const loginButtonHandler = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess();
+    }
+  }, []);
 
   return (
     <div className={cls.LoginForm}>
@@ -70,4 +78,4 @@ export const LoginForm = (): JSX.Element => {
       </Button>
     </div>
   );
-};
+});

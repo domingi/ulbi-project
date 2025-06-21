@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, InputHTMLAttributes, useEffect, useRef } from "react";
+import { ChangeEvent, FC, InputHTMLAttributes, memo, useEffect, useRef } from "react";
 import cls from './Input.module.scss';
 import classNames from "~/shared/lib/classNames/classNames";
 
@@ -13,7 +13,7 @@ interface InputProps extends OmittedInputHTMLAttributes{
   isFocus?: boolean;
 }
 
-export const Input: FC<InputProps> = (props: InputProps) => {
+export const Input: FC<InputProps> = memo((props: InputProps) => {
   const { 
     className,
     type = 'text',
@@ -50,4 +50,4 @@ export const Input: FC<InputProps> = (props: InputProps) => {
     </div>
 
   );
-};
+});

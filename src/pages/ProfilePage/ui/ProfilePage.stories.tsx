@@ -1,17 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
 import { THEMES } from '~/app/providers/ThemeProvider';
 import { themeDecorator } from '~/shared/config/storybook/decorators/themeDecorator';
-import { LoginForm } from './LoginForm';
+import ProfilePage from './ProfilePage';
 
 const meta = {
-  title: 'featured/LoginForm',
-  component: LoginForm,
+  title: 'pages/MainPage',
+  component: ProfilePage,
   tags: ['autodocs'],
-  args: {
-    onSuccess: fn(),
-  }
-} satisfies Meta<typeof LoginForm>;
+} satisfies Meta<typeof ProfilePage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

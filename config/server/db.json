@@ -39,7 +39,14 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first": "Stanislav",
+    "lastName": "Gribanov",
+    "age": "34",
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Ekaterinburg",
+    "username": "stas",
+    "avatar": "https://avatarzo.ru/wp-content/uploads/naruto-uzumaki.jpg"
   },
   "users": [
     {

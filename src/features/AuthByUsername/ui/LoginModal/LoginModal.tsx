@@ -16,7 +16,7 @@ const LoginModal: FC<LoginModalProps> = (props: LoginModalProps) => {
   return (
     <DynamicModuleLoader reducerName='loginForm' reducer={loginReducer}>
       <Modal className={className} isOpen={isOpen} onClose={onClose} isLazy>
-        <LoginForm />
+        <LoginForm onSuccess={onClose} />
       </Modal>
     </DynamicModuleLoader>
   );
