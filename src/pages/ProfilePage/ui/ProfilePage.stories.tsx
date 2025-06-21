@@ -4,7 +4,7 @@ import { themeDecorator } from '~/shared/config/storybook/decorators/themeDecora
 import ProfilePage from './ProfilePage';
 
 const meta = {
-  title: 'pages/MainPage',
+  title: 'pages/ProfilePage',
   component: ProfilePage,
   tags: ['autodocs'],
 } satisfies Meta<typeof ProfilePage>;
