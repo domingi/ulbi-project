@@ -14,8 +14,8 @@ const initialState = {
 }
 
 render(
-  <StoreProvider initialState={initialState}>
-    <BrowserRouter>
+  <BrowserRouter>
+    <StoreProvider initialState={initialState}>
       <ErrorBoundary>
         <ThemeProvider>
           <Suspense fallback="">
@@ -23,7 +23,7 @@ render(
           </Suspense>
         </ThemeProvider>
       </ErrorBoundary>
-    </BrowserRouter>
-  </StoreProvider>,
+    </StoreProvider>
+  </BrowserRouter>,
   document.getElementById('root')
 );

@@ -5,6 +5,8 @@ import { LoginSchema } from "~/features/AuthByUsername";
 import { createReduxStore } from "./store";
 import { IReducerManager } from "./reducerManager";
 import { ProfileSchema } from "~/entities/Profile";
+import { AxiosInstance } from "axios";
+import { NavigateFunction } from "react-router";
 
 export interface StoreScheme {
     counter: CounterSchema;
@@ -20,3 +22,13 @@ export interface ReduxStoreWithManager extends EnhancedStore {
 }
 
 export type AppDispatch =  ReturnType<typeof createReduxStore>['dispatch'];
+
+interface AsyncThunkExtra {
+    api: AxiosInstance;
+    navigate?: NavigateFunction;
+} 
+
+export interface AsyncThunkConfigExtra<T> {
+    extra: AsyncThunkExtra;
+    rejectValue: T;
+}

@@ -4,13 +4,14 @@ import { WebpackOptions } from "./types/config";
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-export const definePlugin = (isDev: boolean) => 
+export const definePlugin = (isDev: boolean, apiUrl: string) => 
   new webpack.DefinePlugin({
     __IS_DEV__: JSON.stringify(isDev),
+    __API__: JSON.stringify(apiUrl),
   });
 
 export const webpackPlugins = (options: WebpackOptions): webpack.WebpackPluginInstance[] => {
-  const { paths, isDev } = options;
+  const { paths, isDev, apiUrl } = options;
 
   const plugins = [
     new webpack.ProgressPlugin(),
@@ -19,7 +20,7 @@ export const webpackPlugins = (options: WebpackOptions): webpack.WebpackPluginIn
       favicon: paths.favicon,
     }),
     new MiniCssExtractPlugin(),
-    definePlugin(isDev),
+    definePlugin(isDev, apiUrl),
   ];
 
   if (isDev) {

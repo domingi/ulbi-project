@@ -10,5 +10,6 @@
   "voiti": "Log in",
   "loginForm": "Login",
   "loginError": "Login error",
-  "vyiti": "Log out"
+  "vyiti": "Log out",
+  "fetchProfileDataError": "Fetch Profile Data Error"
 }

@@ -3,8 +3,7 @@ import cls from './Sidebar.module.scss';
 import classNames from "~/shared/lib/classNames/classNames";
 import { ThemeSwitcher } from "~/shared/ui/ThemeSwitcher";
 import { LangSwitcher } from "~/shared/ui/LangSwitcher";
-import { Button } from "~/shared/ui/Button";
-import { ButtonSize, ButtonTheme } from "~/shared/ui/Button/ui/Button";
+import { Button, ButtonTheme, ButtonSize } from "~/shared/ui/Button";
 import { SidebarLinkItems } from "../model/SidebarLinkItems";
 import { SidebarLink } from "./SidebarLink";
 

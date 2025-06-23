@@ -9,6 +9,7 @@ const config: Config = {
   clearMocks: true,
   globals: {
     __IS_DEV__: true,
+    __API__: '',
   },
   testMatch: [
     "**/__tests__/**/*.[jt]s?(x)",

@@ -1,0 +1,15 @@
+.ProfileCard {
+    max-width: 500px;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid var(--inverted-bg-color);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input {
+    margin-top: 10px;
+}

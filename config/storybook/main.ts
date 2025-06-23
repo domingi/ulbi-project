@@ -21,13 +21,15 @@ const config: StorybookConfig = {
     options: {}
   },
   webpackFinal: async (config) => {
-    config.module.rules.push(scssLoader(true));
-    config.plugins.push(new MiniCssExtractPlugin());
-    config.plugins.push(definePlugin(true));
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '~': path.resolve(__dirname, '../../src'),
-    };
+    config?.module?.rules?.push(scssLoader(true));
+    config?.plugins?.push(new MiniCssExtractPlugin());
+    config?.plugins?.push(definePlugin(true, ''));
+    if (config.resolve) {
+      config.resolve.alias = {
+        ...config?.resolve?.alias,
+        '~': path.resolve(__dirname, '../../src'),
+      };
+    }
     return config;
   },
 };

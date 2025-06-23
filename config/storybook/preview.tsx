@@ -18,7 +18,7 @@ export const globalTypes = {
 };
 
 const preview: Preview = {
-  decorators: [I18nDecorator, RouterDecorator, ThemeDecorator, ReduxDecorator],
+  decorators: [I18nDecorator, ThemeDecorator, ReduxDecorator, RouterDecorator],
   parameters: {
     controls: {
       matchers: {

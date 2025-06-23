@@ -1,10 +1,9 @@
 import cls from './LoginForm.module.scss';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from '~/shared/ui/Button';
+import { Button, ButtonTheme } from '~/shared/ui/Button';
 import { Input } from '~/shared/ui/Input';
 import { Text } from '~/shared/ui/Text';
-import { ButtonTheme } from '~/shared/ui/Button/ui/Button';
 import { useSelector } from "react-redux";
 import { loginActions } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername';
@@ -40,7 +39,7 @@ export const LoginForm: FC<LoginFormProps> = memo(({ onSuccess }: LoginFormProps
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
     }
-  }, []);
+  }, [username, password]);
 
   return (
     <div className={cls.LoginForm}>

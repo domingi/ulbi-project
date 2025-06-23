@@ -12,9 +12,11 @@ export interface WebpackOptions {
     favicon: string,
   },
   isDev: boolean,
+  apiUrl: string,
 }
 
 export interface BuildEnvs {
   mode: WebpackMode;
   port: number,
+  apiUrl: string,
 }

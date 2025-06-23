@@ -16,7 +16,7 @@ export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose, is
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
   const [ isClosing, setIsClosing] = useState(false);
-  const timeoutId = useRef<ReturnType<typeof setTimeout>>(null);
+  const timeoutId = useRef<NodeJS.Timeout>();
 
   const onCloseHandler = useCallback(() => {
     setIsClosing(true);

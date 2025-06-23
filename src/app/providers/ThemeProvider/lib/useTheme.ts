@@ -7,12 +7,12 @@ interface UseContextResult {
     toggleTheme: () => void;
 }
 
-export const useTheme = ():UseContextResult => {
-  const { theme, setTheme } = useContext(ThemeContext);
+export const useTheme = (): UseContextResult => {
+  const { theme = THEMES.LIGHT, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
     const newTheme = theme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT;
-    setTheme(newTheme)
+    setTheme?.(newTheme);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     document.body.className = newTheme;
   };

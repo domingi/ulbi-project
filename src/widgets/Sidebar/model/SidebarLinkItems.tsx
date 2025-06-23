@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { ROUTE_PATHS } from "~/shared/config/routeConfig/routeConfig";
 import { HomeIcon } from "~/shared/assets/icons/HomeIcon";
 import { AboutIcon } from "~/shared/assets/icons/AboutIcon";
