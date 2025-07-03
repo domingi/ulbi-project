@@ -31,4 +31,5 @@ interface AsyncThunkExtra {
 export interface AsyncThunkConfigExtra<T> {
     extra: AsyncThunkExtra;
     rejectValue: T;
+    state: StoreScheme;
 }

@@ -1,15 +1,29 @@
 .ProfileCard {
     max-width: 500px;
+    min-height: 300px;
     margin: 20px;
     padding: 20px;
     border: 2px solid var(--inverted-bg-color);
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
+.editing {
+    border: 2px solid var(--secondary-color);
 }
 
 .input {
     margin-top: 10px;
+}
+
+.error,
+.isLoading {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatarWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }

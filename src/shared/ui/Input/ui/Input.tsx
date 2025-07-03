@@ -2,7 +2,7 @@ import { ChangeEvent, FC, InputHTMLAttributes, memo, useEffect, useRef } from "r
 import cls from './Input.module.scss';
 import classNames from "~/shared/lib/classNames/classNames";
 
-type OmittedInputHTMLAttributes = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'>;
+type OmittedInputHTMLAttributes = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'readOnly'>;
 
 interface InputProps extends OmittedInputHTMLAttributes{
   className?: string;
@@ -11,6 +11,7 @@ interface InputProps extends OmittedInputHTMLAttributes{
   onChange?: (value: string) => void;
   placeholder?: string;
   isFocus?: boolean;
+  readonly?: boolean;
 }
 
 export const Input: FC<InputProps> = memo((props: InputProps) => {
@@ -21,10 +22,14 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
     onChange,
     placeholder,
     isFocus,
+    readonly = false,
   } = props;
 
   const ref = useRef<HTMLInputElement>(null);
 
+  const mods = {
+    [cls.readonly]: readonly,
+  }
   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
   };
@@ -36,7 +41,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
   }, [isFocus])
   
   return (
-    <div className={classNames(cls.Input, {}, [className])}>
+    <div className={classNames(cls.Input, mods, [className])}>
       {placeholder && (<span className={cls.placeholder}>
         {placeholder}{' >'}
       </span>)}
@@ -46,6 +51,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
         type={type}
         value={value}
         onChange={inputHandler}
+        readOnly={readonly}
       />
     </div>
 

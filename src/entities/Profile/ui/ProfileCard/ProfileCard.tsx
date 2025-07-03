@@ -2,38 +2,117 @@ import { FC } from 'react';
 import cls from './ProfileCard.module.scss';
 import { Input } from '~/shared/ui/Input';
 import { Text } from '~/shared/ui/Text';
-
-import { useSelector } from 'react-redux';
-import { getProfileData } from '../../selectors/getProfileData/getProfileData';
-import { getProfileIsLoading } from '../../selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileError } from '../../selectors/getProfileError/getProfileError';
-import { Button, ButtonTheme } from '~/shared/ui/Button';
 import { useTranslation } from 'react-i18next';
+import { Profile } from '../../model/types/profileSchema';
+import { Loader } from '~/shared/ui/Loader';
+import classNames from '~/shared/lib/classNames/classNames';
+import { TextTheme } from '~/shared/ui/Text/ui/Text';
+import { Avatar } from '~/shared/ui/Avatar';
+import { CURRENCY, CurrencySelect } from '~/entities/Currency';
+import { COUNTRY, CountrySelect } from '~/entities/Country';
 
 interface ProfileCardProps {
     className?: string;
+    data?: Profile;
+    isLoading?: boolean;
+    error?: string;
+    readonly?: boolean;
+    onChangeFirst?: (value: string) => void;
+    onChangeLast?: (value: string) => void;
+    onChangeCity?: (value: string) => void;
+    onChangeAge?: (value: string) => void;
+    onChangeUsername?: (value: string) => void;
+    onChangeAvatar?: (value: string) => void;
+    onChangeCurrency?: (value: CURRENCY) => void;
+    onChangeCountry?: (value: COUNTRY) => void;
 }
 
-export const ProfileCard: FC = (props) => {
+export const ProfileCard: FC<ProfileCardProps> = (props) => {
+  const { 
+    data,
+    isLoading,
+    error,
+    readonly,
+    onChangeFirst,
+    onChangeLast,
+    onChangeCity,
+    onChangeAge,
+    onChangeUsername,
+    onChangeAvatar,
+    onChangeCurrency,
+    onChangeCountry,
+  } = props;
   const { t } = useTranslation('profile');
-  const data = useSelector(getProfileData);
-  const isLoading = useSelector(getProfileIsLoading);
-  const error = useSelector(getProfileError);
+
+  if (isLoading) return (
+    <div className={classNames(cls.ProfileCard, {}, [cls.isLoading])}>
+      <Loader />
+    </div>
+  );
+
+  if (error) return (
+    <div className={classNames(cls.ProfileCard, {}, [cls.error])}>
+      <Text title={error} text='Попробуйте перезагрузить страницу' theme={TextTheme.ERROR} />
+    </div>
+  );
 
   return (
-    <div className={cls.ProfileCard}>
-      <div className={cls.header}>
-        <Text title={t('profil')} />
-        <Button theme={ButtonTheme.OUTLINE}>{t('edit')}</Button>
+    <div className={classNames(cls.ProfileCard, { [cls.editing]: !readonly }, [])}>
+      <div className={cls.avatarWrapper}>
+        {data?.avatar && <Avatar path={data?.avatar} alt="Аватарка" />}
       </div>
       <Input
         value={data?.first}
         placeholder={t('name')}
         className={cls.input}
+        readonly={readonly}
+        onChange={onChangeFirst}
       />
       <Input
         value={data?.lastName}
         placeholder={t('lastname')}
+        className={cls.input}
+        readonly={readonly}
+        onChange={onChangeLast}
+      />
+      <Input
+        value={data?.city}
+        placeholder={t('gorod')}
+        className={cls.input}
+        readonly={readonly}
+        onChange={onChangeCity}
+      />
+      <Input
+        value={data?.age}
+        placeholder={t('vozrast')}
+        className={cls.input}
+        readonly={readonly}
+        onChange={onChangeAge}
+      />
+      <Input
+        value={data?.username}
+        placeholder={t('imyaPolzo')}
+        className={cls.input}
+        readonly={readonly}
+        onChange={onChangeUsername}
+      />
+      <Input
+        value={data?.avatar}
+        placeholder={t('ssylkaNa')}
+        className={cls.input}
+        readonly={readonly}
+        onChange={onChangeAvatar}
+      />
+      <CurrencySelect
+        value={data?.currency}
+        onChange={onChangeCurrency}
+        disabled={readonly}
+        className={cls.input}
+      />
+      <CountrySelect
+        value={data?.country}
+        onChange={onChangeCountry}
+        disabled={readonly}
         className={cls.input}
       />
     </div>

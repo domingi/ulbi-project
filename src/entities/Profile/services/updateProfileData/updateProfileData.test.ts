@@ -1,4 +1,4 @@
-import { fetchProfileData } from './fetchProfileData';
+import { updateProfileData } from './updateProfileData';
 import { AsyncThunkTest } from '~/shared/lib/tests/AsyncThunkTest/AsyncThunkTest';
 import { CURRENCY } from '~/entities/Currency';
 import { COUNTRY } from '~/entities/Country';
@@ -16,7 +16,7 @@ const mockedResponse = {
 
 describe('fetchProfileData test', () => {
   test('success fetch', async () => {
-    const asyncThunk = new AsyncThunkTest(fetchProfileData);
+    const asyncThunk = new AsyncThunkTest(updateProfileData);
     asyncThunk.api.get.mockReturnValue(Promise.resolve({ data: mockedResponse }));
     const result = await asyncThunk.callThunk();
 
@@ -26,7 +26,7 @@ describe('fetchProfileData test', () => {
   });
 
   test('error fetch', async () => {
-    const asyncThunk = new AsyncThunkTest(fetchProfileData);
+    const asyncThunk = new AsyncThunkTest(updateProfileData);
     asyncThunk.api.get.mockReturnValue(Promise.reject({ status: 403 }));
     const result = await asyncThunk.callThunk();
   

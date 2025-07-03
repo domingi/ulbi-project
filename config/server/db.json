@@ -41,12 +41,12 @@
   "profile": {
     "first": "Stanislav",
     "lastName": "Gribanov",
-    "age": "34",
-    "currency": "RUB",
-    "country": "Russia",
+    "age": "35",
+    "currency": "usd",
+    "country": "germany",
     "city": "Ekaterinburg",
     "username": "stas",
-    "avatar": "https://avatarzo.ru/wp-content/uploads/naruto-uzumaki.jpg"
+    "avatar": "https://developer.mozilla.org/static/media/mdn_contributor.14a24dcfda486f000754.png"
   },
   "users": [
     {

@@ -11,5 +11,6 @@
   "loginForm": "Форма авторизации",
   "loginError": "Введите верный логин или пароль",
   "vyiti": "Выйти",
-  "fetchProfileDataError": "Не получилось загрузить профиль"
+  "fetchProfileDataError": "Не получилось загрузить профиль",
+  "updateProfileDataError": "Update Profile Data Error"
 }

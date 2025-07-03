@@ -2,5 +2,13 @@
   "profil": "Profile",
   "edit": "Edit",
   "name": "your name",
-  "lastname": "Your surname"
+  "lastname": "Your surname",
+  "otmenit": "Cancel",
+  "sokhranit": "Save",
+  "gorod": "City",
+  "vozrast": "Age",
+  "imyaPolzo": "User name",
+  "ssylkaNa": "Link to the avatar",
+  "vyberiteV": "Select the currency",
+  "vyberiteG": "Choose the city"
 }

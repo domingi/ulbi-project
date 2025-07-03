@@ -11,5 +11,6 @@
   "loginForm": "Login",
   "loginError": "Login error",
   "vyiti": "Log out",
-  "fetchProfileDataError": "Fetch Profile Data Error"
+  "fetchProfileDataError": "Fetch Profile Data Error",
+  "updateProfileDataError": "Update Profile Data Error"
 }

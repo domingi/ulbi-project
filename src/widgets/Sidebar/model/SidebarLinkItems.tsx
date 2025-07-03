@@ -6,6 +6,7 @@ interface SidebarLinkItemsType {
   path: string;
   name: string;
   icon: JSX.Element;
+  isAuthOnly?: boolean;
 }
 
 export const SidebarLinkItems: SidebarLinkItemsType[] = [
@@ -23,5 +24,6 @@ export const SidebarLinkItems: SidebarLinkItemsType[] = [
     path: ROUTE_PATHS.profile,
     name: 'profile',
     icon: <HomeIcon />,
+    isAuthOnly: true,
   },
 ];
