@@ -14,7 +14,7 @@ const mockedProfile = {
   country: COUNTRY.RUSSIA,
   city: "Ekaterinburg",
   username: "stas",
-  avatar: "https://avatarzo.ru/wp-content/uploads/naruto-uzumaki.jpg"
+  avatar: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Das_Audi_Forum_Ingolstadt.JPG/500px-Das_Audi_Forum_Ingolstadt.JPG"
 };
 
 const meta = {
