@@ -1,11 +1,11 @@
-export { profileReducer, profileActions } from './slice/profileSlice';
+export { profileReducer, profileActions } from './model/slice/profileSlice';
 export { Profile, ProfileSchema } from './model/types/profileSchema';
-export { fetchProfileData } from './services/fetchProfileData/fetchProfileData';
+export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
 export { ProfileCard } from './ui/ProfileCard/ProfileCard';
-export { updateProfileData } from './services/updateProfileData/updateProfileData';
+export { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 
-export { getProfileData } from './selectors/getProfileData/getProfileData';
-export { getProfileError } from './selectors/getProfileError/getProfileError';
-export { getProfileIsLoading } from './selectors/getProfileIsLoading/getProfileIsLoading';
-export { getProfileReadonly } from './selectors/getProfileReadonly/getProfileReadonly';
-export { getProfileFormData } from './selectors/getProfileFormData/getProfileFormData';
+export { getProfileData } from './model/selectors/getProfileData';
+export { getProfileError } from './model/selectors/getProfileError';
+export { getProfileIsLoading } from './model/selectors/getProfileIsLoading';
+export { getProfileReadonly } from './model/selectors/getProfileReadonly';
+export { getProfileFormData } from './model/selectors/getProfileFormData';

@@ -23,7 +23,7 @@ const config: StorybookConfig = {
   webpackFinal: async (config) => {
     config?.module?.rules?.push(scssLoader(true));
     config?.plugins?.push(new MiniCssExtractPlugin());
-    config?.plugins?.push(definePlugin(true, ''));
+    config?.plugins?.push(definePlugin(true, '', 'storybook'));
     if (config.resolve) {
       config.resolve.alias = {
         ...config?.resolve?.alias,

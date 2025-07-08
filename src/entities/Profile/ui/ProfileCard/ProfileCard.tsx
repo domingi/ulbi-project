@@ -1,15 +1,16 @@
 import { FC } from 'react';
 import cls from './ProfileCard.module.scss';
 import { Input } from '~/shared/ui/Input';
-import { Text } from '~/shared/ui/Text';
+import { Text, TextTheme } from '~/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
-import { Profile } from '../../model/types/profileSchema';
+import { Profile, VALIDATE_PROFILE_ERRORS } from '../../model/types/profileSchema';
 import { Loader } from '~/shared/ui/Loader';
 import classNames from '~/shared/lib/classNames/classNames';
-import { TextTheme } from '~/shared/ui/Text/ui/Text';
 import { Avatar } from '~/shared/ui/Avatar';
 import { CURRENCY, CurrencySelect } from '~/entities/Currency';
 import { COUNTRY, CountrySelect } from '~/entities/Country';
+import { useSelector } from 'react-redux';
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors';
 
 interface ProfileCardProps {
     className?: string;
@@ -43,6 +44,15 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
     onChangeCountry,
   } = props;
   const { t } = useTranslation('profile');
+  const validationErrors = useSelector(getProfileValidateErrors);
+
+  const validationErrorText = {
+    [VALIDATE_PROFILE_ERRORS.INCORRECT_USER_DATA]: t('nevernoeI'),
+    [VALIDATE_PROFILE_ERRORS.INCORRECT_USER_COUNTRY]: t('ukazhiteS'),
+    [VALIDATE_PROFILE_ERRORS.INCORRECT_USER_AGE]: t('nevernoUk'),
+    [VALIDATE_PROFILE_ERRORS.SERVER_ERROR]: t('oshibkaPr'),
+    [VALIDATE_PROFILE_ERRORS.NO_DATA]: t('oshibkaPr'),
+  };
 
   if (isLoading) return (
     <div className={classNames(cls.ProfileCard, {}, [cls.isLoading])}>
@@ -61,6 +71,13 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
       <div className={cls.avatarWrapper}>
         {data?.avatar && <Avatar path={data?.avatar} alt="Аватарка" />}
       </div>
+      {!!validationErrors?.length && validationErrors.map((error) => (
+        <Text
+          theme={TextTheme.ERROR}
+          title={validationErrorText[error]}
+          key={error}
+        />
+      ))}
       <Input
         value={data?.first}
         placeholder={t('name')}

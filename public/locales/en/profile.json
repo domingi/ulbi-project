@@ -10,5 +10,9 @@
   "imyaPolzo": "User name",
   "ssylkaNa": "Link to the avatar",
   "vyberiteV": "Select the currency",
-  "vyberiteG": "Choose the city"
+  "vyberiteG": "Choose the city",
+  "nevernoeI": "The wrong name, surname",
+  "ukazhiteS": "Indicate the country",
+  "nevernoUk": "The age is incorrectly indicated",
+  "oshibkaPr": "Data boot error"
 }

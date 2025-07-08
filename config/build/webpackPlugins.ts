@@ -4,10 +4,11 @@ import { WebpackOptions } from "./types/config";
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-export const definePlugin = (isDev: boolean, apiUrl: string) => 
+export const definePlugin = (isDev: boolean, apiUrl: string, project: 'dev' | 'storybook' = 'dev') => 
   new webpack.DefinePlugin({
     __IS_DEV__: JSON.stringify(isDev),
     __API__: JSON.stringify(apiUrl),
+    __PROJECT__: JSON.stringify(project),
   });
 
 export const webpackPlugins = (options: WebpackOptions): webpack.WebpackPluginInstance[] => {

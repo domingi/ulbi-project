@@ -49,7 +49,9 @@ const ProfilePage = () => {
   }, []);  
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [])
 
   return (
