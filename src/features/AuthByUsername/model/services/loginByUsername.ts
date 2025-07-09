@@ -20,7 +20,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Asyn
       }
       thunkAPI.dispatch(userActions.setAuthDate(response.data));
       localStorage.setItem(LOCAL_STORAGE_AUTH_KEY, JSON.stringify(response.data));
-      thunkAPI.extra?.navigate?.(ROUTE_PATHS.profile);
+      // thunkAPI.extra?.navigate?.(ROUTE_PATHS.profile);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(i18n.t('loginError'));

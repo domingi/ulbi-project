@@ -10,7 +10,7 @@ import { StoreProvider } from '~/app/providers/StoreProvider';
 
 const initialState = {
   counter: { value: 0 },
-  user: {},
+  user: { isInited: false },
 }
 
 render(
