@@ -16,6 +16,7 @@ export const buildWebpackConfig = (options: WebpackOptions): webpack.Configurati
       filename: '[name].js',
       path: paths.output,
       clean: true,
+      publicPath: '/',
     },
     plugins: webpackPlugins(options),
     module: {

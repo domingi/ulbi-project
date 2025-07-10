@@ -5,20 +5,18 @@ import { PageLoader } from "~/widgets/PageLoader";
 import { RequireAuth } from "./RequireAuth";
 
 export const AppRouter = () => {
-  const routes = () => (
-    Object.values(routeConfig).map(({ path, element, isAuthOnly }) => (
-      <Route
-        path={path}
-        element={isAuthOnly ? (<RequireAuth>{element as JSX.Element}</RequireAuth>) : element}
-        key={path}
-      />
-    )));
 
   return (
     <div className="page-wrapper">
       <Suspense fallback={<PageLoader />}>
         <Routes>
-          {routes()}
+          {Object.values(routeConfig).map(({ path, element, isAuthOnly }) => (
+            <Route
+              path={path}
+              element={isAuthOnly ? (<RequireAuth>{element as JSX.Element}</RequireAuth>) : element}
+              key={path}
+            />
+          ))}
         </Routes>
       </Suspense>
     </div>

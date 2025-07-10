@@ -21,7 +21,7 @@ export const AppLink: FC<AppLinkProps> = memo((props: AppLinkProps) => {
     ...otherProps
   } = props;
   return (
-    <Link to={to} className={classNames(cls.AppLink, {}, [className, cls[theme]])} {...otherProps}>
+    <Link to={to} className={classNames(cls.AppLink, {}, [className, cls[theme]])} {...otherProps} replace>
       {children}
     </Link>
   );

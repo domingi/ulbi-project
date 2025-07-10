@@ -8,16 +8,17 @@ interface DynamicModuleLoaderProps {
     children: ReactNode;
     reducerName: ReducersKeys;
     reducer: Reducer;
+    isRemove?: boolean;
 }
 
-export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({ children, reducerName, reducer }) => {
+export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({ children, reducerName, reducer, isRemove }) => {
   const dispatch = useDispatch();
   const store = useStore() as ReduxStoreWithManager;
 
   useEffect(() => {
     store.reducerManager.add(reducerName, reducer);
     dispatch({ type: `@ADD reducer ${reducerName}`})
-    return () => {
+    if (isRemove) return () => {
       store.reducerManager.remove(reducerName);
       dispatch({ type: `@REMOVE reducer ${reducerName}`});
     }

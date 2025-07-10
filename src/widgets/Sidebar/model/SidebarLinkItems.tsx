@@ -26,4 +26,16 @@ export const SidebarLinkItems: SidebarLinkItemsType[] = [
     icon: <HomeIcon />,
     isAuthOnly: true,
   },
+  {
+    path: ROUTE_PATHS.article,
+    name: 'Статья',
+    icon: <HomeIcon />,
+    isAuthOnly: true,
+  },
+  {
+    path: ROUTE_PATHS.articleDetails,
+    name: 'Детально',
+    icon: <HomeIcon />,
+    isAuthOnly: true,
+  },
 ];
