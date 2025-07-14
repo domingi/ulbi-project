@@ -7,6 +7,7 @@ import { IReducerManager } from "./reducerManager";
 import { ProfileSchema } from "~/entities/Profile";
 import { AxiosInstance } from "axios";
 import { NavigateFunction } from "react-router";
+import { ArticleSchema } from "~/entities/Article";
 
 export interface StoreScheme {
     counter: CounterSchema;
@@ -15,6 +16,7 @@ export interface StoreScheme {
     // async reducers
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
+    article?: ArticleSchema;
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore {
