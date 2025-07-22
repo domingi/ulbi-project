@@ -9,6 +9,7 @@ import { Suspense, useEffect } from 'react';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { StoreProvider, StoreScheme } from '~/app/providers/StoreProvider';
 import { loginReducer } from '~/features/AuthByUsername/model/slice/loginSlice';
+import { articleReducer } from '~/entities/Article';
 
 export const ThemeDecorator = (Story: StoryFn) => {
   const { theme } = useTheme();
@@ -53,6 +54,7 @@ export const ReduxDecorator = (Story: StoryFn) => {
 
   const asyncReducers: DeepPartial<ReducersMapObject<StoreScheme>> = {
     loginForm: loginReducer,
+    article: articleReducer,
   }
   
   return (

@@ -1,5 +1,6 @@
 .ArticleDetails {
-    display: flex-column;
+    display: flex;
+    flex-direction: column;
     padding: 40px;
 }
 
@@ -10,4 +11,12 @@
 
 .title {
     margin-top: 20px;
+}
+
+.articleInfo {
+    display: flex;
+
+    svg {
+        margin-right: 10px;
+    }
 }
