@@ -12,9 +12,12 @@ interface LoginModalProps {
 
 const LoginModal: FC<LoginModalProps> = (props: LoginModalProps) => {
   const { className, isOpen, onClose } = props;
+  const reducers = {
+    loginForm: loginReducer,
+  };
 
   return (
-    <DynamicModuleLoader reducerName='loginForm' reducer={loginReducer}>
+    <DynamicModuleLoader reducers={reducers}>
       <Modal className={className} isOpen={isOpen} onClose={onClose} isLazy>
         <LoginForm onSuccess={onClose} />
       </Modal>

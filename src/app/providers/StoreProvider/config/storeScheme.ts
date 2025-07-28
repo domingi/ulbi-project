@@ -8,6 +8,7 @@ import { ProfileSchema } from "~/entities/Profile";
 import { AxiosInstance } from "axios";
 import { NavigateFunction } from "react-router";
 import { ArticleSchema } from "~/entities/Article";
+import { ArticleCommentsSchema } from "~/pages/ArticleDetailsPage";
 
 export interface StoreScheme {
     counter: CounterSchema;
@@ -17,6 +18,7 @@ export interface StoreScheme {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     article?: ArticleSchema;
+    articleComments?: ArticleCommentsSchema;
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore {

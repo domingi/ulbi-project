@@ -1,0 +1,19 @@
+.Comment {
+    padding: 20px;
+    border: 2px solid var(--inverted-bg-color);
+    margin-bottom: 10px;
+}
+
+.title {
+    display: flex;
+    align-items: baseline;
+}
+
+.avatar {
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.skeleton {
+    margin-top: 20px;
+}

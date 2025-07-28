@@ -13,6 +13,9 @@ const ProfilePage = () => {
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
   const error = useSelector(getProfileError);
+  const reducers = {
+    profile: profileReducer,
+  };
 
   const onChangeFirst = useCallback((first: string) => {
     dispatch(profileActions.updateProfileData({ first }))
@@ -55,7 +58,7 @@ const ProfilePage = () => {
   }, [])
 
   return (
-    <DynamicModuleLoader reducerName='profile' reducer={profileReducer}>
+    <DynamicModuleLoader reducers={reducers}>
       <ProfilePageHeader />
       <ProfileCard
         data={data}

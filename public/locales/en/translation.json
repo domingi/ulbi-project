@@ -13,5 +13,7 @@
   "vyiti": "Log out",
   "fetchProfileDataError": "Fetch Profile Data Error",
   "updateProfileDataError": "Update Profile Data Error",
-  "fetchArticleDataError": "Fetch Article Data Error"
+  "fetchArticleDataError": "Fetch Article Data Error",
+  "fetchArticleCommentsError": "Fetch Article Comments Error",
+  "kommentari": ""
 }

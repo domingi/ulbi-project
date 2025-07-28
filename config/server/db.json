@@ -40,12 +40,14 @@
     {
       "id": "1",
       "username": "stas",
-      "password": "123"
+      "password": "123",
+      "avatar": "https://developer.mozilla.org/static/media/mdn_contributor.14a24dcfda486f000754.png"
     },
     {
       "id": "2",
       "username": "gena",
-      "password": "22222"
+      "password": "22222",
+      "avatar": "https://developer.mozilla.org/static/media/mdn_contributor.14a24dcfda486f000754.png"
     },
     {
       "id": "3",

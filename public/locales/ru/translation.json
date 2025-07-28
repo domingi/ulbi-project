@@ -13,5 +13,7 @@
   "vyiti": "Выйти",
   "fetchProfileDataError": "Не получилось загрузить профиль",
   "updateProfileDataError": "Update Profile Data Error",
-  "fetchArticleDataError": "Не получилось загрузить статью"
+  "fetchArticleDataError": "Не получилось загрузить статью",
+  "fetchArticleCommentsError": "Не получилось загрузить комментарии",
+  "kommentari": "Комментарии"
 }
