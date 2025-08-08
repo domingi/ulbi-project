@@ -4,10 +4,12 @@ import { DynamicModuleLoader } from "~/shared/lib/DynamicModuleLoader/DynamicMod
 import { useSelector } from "react-redux";
 import { articleCommentsReducer, getArticleComments } from "../model/slice/ArticleCommentsSlice";
 import { getArticleCommentsError, getArticleCommentsIsLoading } from "../model/selectors/comments";
-import { fetchArticleComments } from "../model/services/fetchArticleComments";
 import { useAppDispatch } from "~/shared/hooks/useAppDispatch/useAppDispatch";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { AddCommentForm } from "~/features/addCommentForm";
+import { addCommentForArticle } from "../model/services/addCommentForArticle";
+import { fetchArticleComments } from "../model/services/fetchArticleComments";
 
 const ArticleDetailsPage = () => {
   const reducers = {
@@ -19,6 +21,9 @@ const ArticleDetailsPage = () => {
   const comments = useSelector(getArticleComments.selectAll);
   const isLoading = useSelector(getArticleCommentsIsLoading);
   const errors = useSelector(getArticleCommentsError);
+  const sendComment = useCallback((e: string) => {
+    dispatch(addCommentForArticle(e))
+  },[]);
 
   useEffect(() => {
     if (__PROJECT__ !== 'storybook' && id) {
@@ -29,6 +34,7 @@ const ArticleDetailsPage = () => {
   return (
     <DynamicModuleLoader reducers={reducers} isRemove>
       <ArticleDetails />
+      <AddCommentForm sendComment={sendComment} />
       <CommentList 
         isLoading={isLoading}
         comments={comments}

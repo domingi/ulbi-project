@@ -6,10 +6,14 @@ import { DynamicModuleLoader } from "~/shared/lib/DynamicModuleLoader/DynamicMod
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
 import { CURRENCY } from "~/entities/Currency";
 import { COUNTRY } from "~/entities/Country";
+import { useParams } from "react-router-dom";
+import { getAuthData } from "~/entities/User";
 
 const ProfilePage = () => {
   const dispatch = useAppDispatch();
+  const { id } = useParams<{ id: string }>();
   const data = useSelector(getProfileFormData);
+  const userData = useSelector(getAuthData);
   const isLoading = useSelector(getProfileIsLoading);
   const readonly = useSelector(getProfileReadonly);
   const error = useSelector(getProfileError);
@@ -17,49 +21,50 @@ const ProfilePage = () => {
     profile: profileReducer,
   };
 
+  const isAuthUser = data?.id === userData?.id;
   const onChangeFirst = useCallback((first: string) => {
-    dispatch(profileActions.updateProfileData({ first }))
+    dispatch(profileActions.updateProfileFormData({ first }))
   }, []);
   
   const onChangeLast = useCallback((lastName: string) => {
-    dispatch(profileActions.updateProfileData({ lastName }))
+    dispatch(profileActions.updateProfileFormData({ lastName }))
   }, []);
 
   const onChangeCity = useCallback((city: string) => {
-    dispatch(profileActions.updateProfileData({ city }))
+    dispatch(profileActions.updateProfileFormData({ city }))
   }, []);
 
   const onChangeAge = useCallback((value: string) => {
     if ((/^\d+$/).test(value) || !value) {
-      dispatch(profileActions.updateProfileData({ age: value || '' }));
+      dispatch(profileActions.updateProfileFormData({ age: value || '' }));
     }
   }, []);
 
   const onChangeAvatar = useCallback((avatar: string) => {
-    dispatch(profileActions.updateProfileData({ avatar }))
+    dispatch(profileActions.updateProfileFormData({ avatar }))
   }, []);
 
   const onChangeUsername = useCallback((username: string) => {
-    dispatch(profileActions.updateProfileData({ username }))
+    dispatch(profileActions.updateProfileFormData({ username }))
   }, []);
 
   const onChangeCurrency = useCallback((currency: CURRENCY) => {
-    dispatch(profileActions.updateProfileData({ currency }))
+    dispatch(profileActions.updateProfileFormData({ currency }))
   }, []);
 
   const onChangeCountry = useCallback((country: COUNTRY) => {
-    dispatch(profileActions.updateProfileData({ country }))
+    dispatch(profileActions.updateProfileFormData({ country }))
   }, []);  
 
   useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook' && id) {
+      dispatch(fetchProfileData(id));
     }
-  }, [])
+  }, [id])
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <ProfilePageHeader />
+      {isAuthUser && <ProfilePageHeader />}
       <ProfileCard
         data={data}
         isLoading={isLoading}

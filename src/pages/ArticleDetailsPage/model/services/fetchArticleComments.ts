@@ -4,7 +4,7 @@ import i18n from "~/shared/config/i18n/i18n";
 import { IComment } from "~/entities/Comment";
 
 export const fetchArticleComments = createAsyncThunk<IComment[], string, AsyncThunkConfigExtra<string>>(
-  '/comments',
+  '/articleComments/fetchArticleComments',
   async (articleId, thunkAPI) => {
     try {
       if (!articleId) {

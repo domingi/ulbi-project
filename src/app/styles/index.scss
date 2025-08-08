@@ -19,7 +19,8 @@
 
 .page-wrapper {
     flex-grow: 1;
-    height: calc(100vh - var(--navbar-height));
+    height: calc(100vh - var(--navbar-height) - 80px);
     overflow-y: scroll;
     width: 100%;
+    padding: 40px;
 }

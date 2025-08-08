@@ -17,7 +17,7 @@ export const profileSlice = createSlice({
     setProfileReadonly: (state, action: PayloadAction<boolean>) => {
       state.readonly = action.payload;
     },
-    updateProfileData: (state, action: PayloadAction<Profile>) => {
+    updateProfileFormData: (state, action: PayloadAction<Profile>) => {
       state.formData = {
         ...state.formData,
         ...action.payload,

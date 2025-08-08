@@ -26,16 +26,30 @@
       "id": "5daruyD"
     }
   ],
-  "profile": {
-    "first": "Stanislav",
-    "lastName": "Gribanov",
-    "age": "34",
-    "currency": "usd",
-    "country": "germany",
-    "city": "Ekaterinburg",
-    "username": "stas",
-    "avatar": "https://developer.mozilla.org/static/media/mdn_contributor.14a24dcfda486f000754.png"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "first": "Stanislav",
+      "lastName": "Gribanov",
+      "age": "34",
+      "currency": "usd",
+      "country": "germany",
+      "city": "Ekaterinburg",
+      "username": "stas",
+      "avatar": "https://developer.mozilla.org/static/media/mdn_contributor.14a24dcfda486f000754.png"
+    },
+    {
+      "id": "2",
+      "first": "Наруто",
+      "lastName": "Узумаки",
+      "age": "34",
+      "currency": "usd",
+      "country": "germany",
+      "city": "Moscow",
+      "username": "Naruto-san",
+      "avatar": "https://i.pinimg.com/736x/ec/c0/8b/ecc08bdab3da8d5e1a1f4dc96b385bc6.jpg"
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -45,9 +59,9 @@
     },
     {
       "id": "2",
-      "username": "gena",
+      "username": "Naruto",
       "password": "22222",
-      "avatar": "https://developer.mozilla.org/static/media/mdn_contributor.14a24dcfda486f000754.png"
+      "avatar": "https://i.pinimg.com/736x/ec/c0/8b/ecc08bdab3da8d5e1a1f4dc96b385bc6.jpg"
     },
     {
       "id": "3",
@@ -60,7 +74,7 @@
       "password": "55555"
     }
   ],
-"articles": [
+  "articles": [
     {
       "id": "1",
       "title": "Javascript news",
@@ -68,7 +82,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -142,13 +158,31 @@
       "id": "2",
       "text": "some comment 2",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
     },
     {
       "id": "3",
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "555",
+      "id": "VbdiFHq"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Привет! Это коммент",
+      "id": "tSCGfoE"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Ребята, это какой-то треш",
+      "id": "PjIhlqO"
     }
   ]
 }

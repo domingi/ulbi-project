@@ -15,5 +15,6 @@
   "updateProfileDataError": "Update Profile Data Error",
   "fetchArticleDataError": "Не получилось загрузить статью",
   "fetchArticleCommentsError": "Не получилось загрузить комментарии",
-  "kommentari": "Комментарии"
+  "kommentari": "Комментарии",
+  "napisatKo": "Написать комментарий"
 }

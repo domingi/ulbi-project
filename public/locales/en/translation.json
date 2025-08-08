@@ -15,5 +15,6 @@
   "updateProfileDataError": "Update Profile Data Error",
   "fetchArticleDataError": "Fetch Article Data Error",
   "fetchArticleCommentsError": "Fetch Article Comments Error",
-  "kommentari": ""
+  "kommentari": "",
+  "napisatKo": "Write a comment"
 }

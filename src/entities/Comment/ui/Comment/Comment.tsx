@@ -5,6 +5,7 @@ import { Avatar } from '~/shared/ui/Avatar';
 import { IComment } from '../../model/types/comment';
 import { Text } from '~/shared/ui/Text';
 import { Skeleton } from '~/shared/ui/Skeleton';
+import { AppLink } from '~/shared/ui/AppLink';
 
 interface CommentProps {
     className?: string;
@@ -28,7 +29,9 @@ export const Comment: FC<CommentProps> = memo(({ className, comment, isLoading }
     <div className={cls.Comment}>
       <div className={cls.title}>
         {comment.user.avatar && <Avatar size={50} path={comment.user.avatar} alt="Аватар" className={cls.avatar} />}
-        <Text title={comment.user.username} />
+        <AppLink to={`/profile/${comment.user.id}`}>
+          <Text title={comment.user.username} />
+        </AppLink>
       </div>
       <Text text={comment.text} />
     </div>

@@ -12,7 +12,8 @@ const mockedData = {
   country: COUNTRY.RUSSIA,
   city: "Ekaterinburg",
   username: "stas",
-  avatar: "https://avatarzo.ru/wp-content/uploads/naruto-uzumaki.jpg"
+  avatar: "https://avatarzo.ru/wp-content/uploads/naruto-uzumaki.jpg",
+  id: '1'
 };
 
 

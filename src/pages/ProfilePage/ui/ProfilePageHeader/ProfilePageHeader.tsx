@@ -6,7 +6,6 @@ import { useAppDispatch } from "~/shared/hooks/useAppDispatch/useAppDispatch";
 import { Button, ButtonTheme } from "~/shared/ui/Button";
 import { Text } from '~/shared/ui/Text';
 import { useTranslation } from "react-i18next";
-import { read } from "node:fs";
 
 const ProfilePageHeader = () => {
   const { t } = useTranslation('profile');

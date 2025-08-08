@@ -7,7 +7,7 @@ export function createReducerManager(initialReducers: ReducersMapObject<StoreSch
 
   let combinedReducer = combineReducers(reducers)
 
-  let keysToRemove: ReducersKeys[] = ['loginForm', 'profile', 'article', 'articleComments'];
+  let keysToRemove: ReducersKeys[] = ['loginForm', 'profile', 'article', 'articleComments', 'addComment'];
 
   return {
     getReducerMap: () => reducers,
